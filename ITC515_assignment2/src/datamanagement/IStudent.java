@@ -9,7 +9,7 @@ public interface IStudent
     public Integer getID(); // Return the student id
 
     public String getFirstName(); // Return the student's first name
-    public void setFirstName(String firstName); //bSet the student's first name
+    public void setFirstName(String firstName); // Set the student's first name
 
     public String getLastName(); // Return the student's last name
     public void setLastName(String lastName); // Set the student's last name
