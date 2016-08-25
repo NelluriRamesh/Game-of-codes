@@ -18,8 +18,8 @@ public class UnitProxy implements IUnit {
         return this.un; 
     }
     
-    public void setPsCutOff1(float cutOff) { // set the Pass mark
-        um.getUnit(UC).setPsCutOff1(cutOff);
+    public void setPsCutOff(float cutOff) { // set the Pass mark
+        um.getUnit(UC).setPsCutOff(cutOff);
 	}
     
 	public float getPsCutOff() { // return the Pass mark
