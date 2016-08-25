@@ -3,10 +3,10 @@ package datamanagement;
 public class Unit implements IUnit {
 	private String uc; // Unit Code
 	private String UN; // Unit Name
-	private float co2;
 	private float co1;
-	private float co4;
+	private float co2;
 	private float co3;
+	private float co4;
 	private float co5;
 	private int a1, a2, ex;
 	
@@ -35,7 +35,7 @@ public class Unit implements IUnit {
 		return this.UN;
 	}
 
-	public void setPsCutOff1(float cutOff) { // set the Pass mark
+	public void setPsCutOff(float cutOff) { // set the Pass mark
 		this.co2 = cutOff;
 	}
 
@@ -126,7 +126,7 @@ public class Unit implements IUnit {
 		this.ex = ex;			
 	}
 	
-	private void setCutoffs( float ps, float cr, float di, float hd, float ae) { // Never used locally
+	private void setCutOffs( float ps, float cr, float di, float hd, float ae) { // Never used locally
 		if (ps < 0 || ps > 100 ||
 			cr < 0 || cr > 100 ||
 			di < 0 || di > 100 ||
