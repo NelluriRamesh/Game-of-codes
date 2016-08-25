@@ -6,7 +6,7 @@ public interface IUnit {
     public String getUnitName(); // return the Unit Name
 
     public float getPsCutOff(); // return the Pass mark
-    public void  setPsCutOff1(float cutOff); // set the Pass mark
+    public void  setPsCutOff(float cutOff); // set the Pass mark
 
     public float getCrCutOff(); // return the Credit mark
     public void  setCrCutOff(float cutOff); // set the Credit mark
