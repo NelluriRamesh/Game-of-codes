@@ -46,7 +46,7 @@ public class StudentManager
      */
     private Element getStudentElement(Integer id)
     {
-    	// loop continues until the last student in XML file.  
+    	// Loop continues until the last student in XML file.  
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentTable").getChildren("student")) 
             if (id.toString().equals(el.getAttributeValue("sid")))	// Compare student id with id stored in XML file. 
             		return el;										
