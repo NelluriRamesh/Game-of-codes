@@ -1,8 +1,8 @@
 package datamanagement;
 
 public class Unit implements IUnit {
-	private String uc; // Unit Code
-	private String UN; // Unit Name
+	private String uc;
+	private String UN;
 	private float co2;
 	private float co1;
 	private float co4;
@@ -15,9 +15,9 @@ public class Unit implements IUnit {
 	public Unit(String UC, String un, float f1, float f2, float f3, float f4,
 			float f5, int i1, int i2, int i3, StudentUnitRecordList rl) {
 
-		uc = UC; // Unit code
-		UN = un; // Unit Name
-		co2 = f1;  
+		uc = UC;
+		UN = un;
+		co2 = f1;
 		co1 = f2;
 		this.co4 = f3;
 		co3 = f4;
@@ -26,65 +26,65 @@ public class Unit implements IUnit {
 		rs = rl == null ? new StudentUnitRecordList() : rl;
 	}
 
-	public String getUnitCode() { // return the Unit Code
+	public String getUnitCode() {
 		return this.uc;
 	}
 
-	public String getUnitName() { // return the Unit Name
+	public String getUnitName() {
 
 		return this.UN;
 	}
 
-	public void setPsCutOff1(float cutOff) { // set the Pass mark
-		this.co2 = cutOff;
+	public void setPsCutoff1(float cutoff) {
+		this.co2 = cutoff;
 	}
 
-	public float getPsCutOff() { // return the Pass mark
+	public float getPsCutoff() {
 		return this.co2;
 	}
 
-	public void setCrCutOff(float cutOff) { // set the Credit mark
-		this.co1 = cutOff;
+	public void setCrCutoff(float cutoff) {
+		this.co1 = cutoff;
 	}
 
-	public float getCrCutOff() { // return the Credit mark
+	public float getCrCutoff() {
 		return this.co1;
 	}
 
-	public void setDiCutOff(float cutOff) { // set the Distinction mark
-		this.co4 = cutOff;
+	public void setDiCutoff(float cutoff) {
+		this.co4 = cutoff;
 	}
 
-	public float getDiCuttOff() { // return the Distinction mark
+	public float getDiCuttoff() {
 		return this.co4;
 	}
 
-	public void getHDCutOff(float cutOff) { // set the High Distinction mark
-		this.co3 = cutOff;
+	public void HDCutoff(float cutoff) {
+		this.co3 = cutoff;
 	}
 
-	public void setHdCutOff(float cutOff) { // set the High Distinction mark
-		this.co3 = cutOff;
+	public void setHdCutoff(float cutoff) {
+		this.co3 = cutoff;
 	}
 
-	public float getHdCutOff() { // return the High Distinction mark
+	public float getHdCutoff() {
 		return this.co3;
 
 	}
 
-	public void setAeCutOff(float cutOff) { // set the marginal fail mark
-		this.co5 = cutOff;
+	public void setAeCutoff(float cutoff) {
+		this.co5 = cutoff;
 	}
 
-	public float getAeCutOff() { // return the marginal fail mark
+	public float getAeCutoff() {
 		return this.co5;
 	}
 
-	public void addStudentRecord(IStudentUnitRecord record) { // add a new student record
+	public void addStudentRecord(IStudentUnitRecord record) {
 		rs.add(record);
 	}
 
-	public IStudentUnitRecord getStudentRecord(int studentID) { // check if the record is a student
+	public IStudentUnitRecord getStudentRecord(int studentID) {
 		for (IStudentUnitRecord r : rs) {
 			if (r.getStudentID() == studentID)
 				return r;
@@ -92,22 +92,22 @@ public class Unit implements IUnit {
 		return null;
 	}
 
-	public StudentUnitRecordList listStudentRecords() { // return a list of student
+	public StudentUnitRecordList listStudentRecords() {
 		return rs;
 	}
 
 	@Override
-	public int getAsg1Weight() { // return assignment 1 weight
+	public int getAsg1Weight() {
 		return a1;
 	}
 
 	@Override
-	public int getAsg2Weight() { // return assignment 2 weight
+	public int getAsg2Weight() {
 		return a2;
 	}
 
 	@Override
-	public int getExamWeight() { // return exam weight
+	public int getExamWeight() {
 		return ex;
 	}
 
@@ -126,7 +126,7 @@ public class Unit implements IUnit {
 		this.ex = ex;			
 	}
 	
-	private void setCutoffs( float ps, float cr, float di, float hd, float ae) { // Never used locally
+	private void setCutoffs( float ps, float cr, float di, float hd, float ae) {
 		if (ps < 0 || ps > 100 ||
 			cr < 0 || cr > 100 ||
 			di < 0 || di > 100 ||
@@ -146,6 +146,7 @@ public class Unit implements IUnit {
 		if (di >= hd) {
 			throw new RuntimeException("DI cutoff must be less than HD cutoff");
 		}
+
 	}
 	
 	public String getGrade(float f1, float f2, float f3) {
@@ -155,20 +156,20 @@ public class Unit implements IUnit {
 			f2 < 0 || f2 > a2 ||
 			f3 < 0 || f3 > ex ) {
 			throw new RuntimeException("marks cannot be less than zero or greater than assessment weights");
-		} //Check if the marks are in the boundary limit
+		}
 
 		if (t < co5) {
-			return "FL"; // Fail
+			return "FL";
 		} else if (t < co2)
-			return "AE"; // Marginal fail
+			return "AE";
 		else if (t < co1)
-			return "PS"; // Pass
+			return "PS";
 		else if (t < co4)
-			return "CR"; // Credit
+			return "CR";
 		else if (t < co3)
-			return "DI"; // Distinction
+			return "DI";
 		else
-			return "HD"; // High Distinction
+			return "HD";
 	}
 
 	
